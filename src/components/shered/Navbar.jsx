@@ -6,7 +6,7 @@ import { Button } from '@heroui/react';
 import NavLink from './Navlink';
 const Navbar = () => {
   return (
-    <div className='flex justify-between w-11/12 mx-auto'>
+    <div className='flex justify-between w-11/12 mx-auto mt-16'>
    <div></div>
    <ul className='flex gap-4 '>
     <li><NavLink href={'/'}>Home</NavLink></li>
