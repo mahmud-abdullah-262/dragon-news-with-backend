@@ -12,7 +12,7 @@ const LoginPage = () => {
    const router = useRouter(); 
     const onSubmit = async (data) => {
     const {name, email, password, photo} = data;
-    console.log(name, email, password, photo)
+  
     const {  data:res, error } = await authClient.signIn.email({
       
       email: email, // required

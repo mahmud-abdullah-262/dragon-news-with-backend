@@ -10,14 +10,14 @@ const RightSide = () => {
     const data = await authClient.signIn.social({
     provider: "google",
   });
-  console.log(data, 'data')
+  // console.log(data, 'data')
   }
 
   const signInWithGithub = async () => {
      const data = await authClient.signIn.social({
         provider: "github"
     })
-     console.log(data, 'data')
+    //  console.log(data, 'data')
   }
   return (
     <div>
