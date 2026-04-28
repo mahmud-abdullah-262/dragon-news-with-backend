@@ -1,19 +1,34 @@
+'use client'
+import { authClient } from '@/lib/auth-client';
 import { Button } from '@heroui/react';
 import { Icon } from '@iconify/react';
 import React from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const RightSide = () => {
+  const signInWithGoogle = async () => {
+    const data = await authClient.signIn.social({
+    provider: "google",
+  });
+  console.log(data, 'data')
+  }
+
+  const signInWithGithub = async () => {
+     const data = await authClient.signIn.social({
+        provider: "github"
+    })
+     console.log(data, 'data')
+  }
   return (
     <div>
        <h1 className="text-center font-semibold mb-4">Login With</h1>
 
        <div className='flex flex-col gap-2'>
-        <Button className="w-full" variant="tertiary">
+        <Button className="w-full" variant="tertiary" onClick={() => signInWithGoogle()}>
        <FaGoogle />
         Sign in with Google
       </Button>
-      <Button className="w-full" variant="tertiary">
+      <Button className="w-full" variant="tertiary" onClick={() => signInWithGithub()}>
         <FaGithub />
         Sign in with GitHub
       </Button>

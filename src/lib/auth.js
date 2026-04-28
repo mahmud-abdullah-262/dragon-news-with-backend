@@ -2,16 +2,22 @@ import { betterAuth } from "better-auth";
 import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 const client = new MongoClient(process.env.DRAGON_NEWS_URI);
-const db = client.db();
+const db = client.db('dragon-news');
 export const auth = betterAuth({
    emailAndPassword: { 
     enabled: true, 
   }, 
+   
+  trustedOrigins: ["http://localhost:3000"],
   socialProviders: { 
-    // github: { 
-    //   clientId: process.env.GITHUB_CLIENT_ID as string, 
-    //   clientSecret: process.env.GITHUB_CLIENT_SECRET as string, 
-    // }, 
+     google: { 
+            clientId: process.env.GOOGLE_CLIENT_ID , 
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET, 
+        }, 
+    github: { 
+      clientId: process.env.GITHUB_CLIENT_ID , 
+      clientSecret: process.env.GITHUB_CLIENT_SECRET, 
+    }, 
   }, 
   database: mongodbAdapter(db, {
     // Optional: if you don't provide a client, database transactions won't be enabled.

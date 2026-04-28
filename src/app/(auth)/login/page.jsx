@@ -1,15 +1,35 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import {Check, Eye, EyeClosed} from "@gravity-ui/icons";
 import {Button, Description, FieldError, Form, Input, Label, TextField} from "@heroui/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const LoginPage = () => {
 
-  const onSubmit = (data) => {
-  console.log(data, 'data')
-  }
+   const router = useRouter(); 
+    const onSubmit = async (data) => {
+    const {name, email, password, photo} = data;
+    console.log(name, email, password, photo)
+    const {  data:res, error } = await authClient.signIn.email({
+      
+      email: email, // required
+      password: password, // required
+     rememberMe: true,
+       fetchOptions: {
+      onSuccess: () => {
+        alert('login successful')
+        router.push("/");  // সফল হলে redirect
+      },
+      onError: (ctx) => {
+        console.error(ctx.error.message);
+      },
+    },
+  });
+  
+    }
   const {
     register,
     handleSubmit,

@@ -4,11 +4,30 @@ import {Check, Eye, EyeClosed} from "@gravity-ui/icons";
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import { authClient } from '@/lib/auth-client';
+import { useRouter } from "next/navigation";
 
 const SignupPage = () => {
+  const router = useRouter(); 
+  const onSubmit = async (data) => {
+  const {name, email, password, photo} = data;
+  console.log(name, email, password, photo)
+  const {  data:res, error } = await authClient.signUp.email({
+    name: name,
+    email: email, // required
+    password: password, // required
+    image: photo,
+     fetchOptions: {
+    onSuccess: () => {
+      alert('signUp successful!')
+      router.push("/");  // সফল হলে redirect
+    },
+    onError: (ctx) => {
+      console.error(ctx.error.message);
+    },
+  },
+});
 
-  const onSubmit = (data) => {
-  console.log(data, 'data')
   }
   const {
     register,
@@ -16,8 +35,8 @@ const SignupPage = () => {
     watch,
     formState: { errors },
   } = useForm();
-
-
+  
+ 
   const [showPassword, setShowPassword] = useState(false)
   return (
    <div className="flex justify-center items-center mt-4">
