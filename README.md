@@ -1,3 +1,6 @@
+
+
+<img width="3000" height="3000" alt="dr" src="https://github.com/user-attachments/assets/f3d9946f-cb20-45d3-914a-2c89c004166b" />
 # 🐉 Dragon News
 
 ## 📌 Project Description
