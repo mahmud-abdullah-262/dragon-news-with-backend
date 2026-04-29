@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🐉 Dragon News
 
-## Getting Started
+## 📌 Project Description
 
-First, run the development server:
+**Dragon News** is a modern and feature-rich news portal website. Users can read the latest news by category, filter news by specific topics, and read the full details of each article on a dedicated dynamic page. Certain pages require users to create an account and log in, managed through a secure authentication system.
+
+---
+
+## 🛠️ Technologies Used
+
+| Category | Technology |
+|----------|------------|
+| **Framework** | Next.js (App Router) |
+| **UI Library** | HeroUI (NextUI) |
+| **Authentication** | Better Auth |
+| **Database** | MongoDB |
+| **Language** | JavaScript
+| **Styling** | Tailwind CSS |
+
+---
+
+## ✨ Features
+
+### 📰 News Features
+- **Category-based News on Homepage** — News listed and displayed according to different categories
+- **Dynamic News Details Page** — Each article has its own dynamic route for reading full details
+- **Category Filtering** — Filter and view all news under a specific category with a single click
+
+### 🔐 Authentication & Security
+- **Sign Up** — New user registration system
+- **Log In** — Secure login system
+- **Log Out** — Safe logout from the current session
+- **Session Management** — Session handled securely via Better Auth
+- **Protected Routes** — Certain pages are accessible only to logged-in users
+
+### 🗄️ Data Management
+- **MongoDB Integration** — Data storage and management on the server
+- **User Data Storage** — User information stored securely in the database
+
+---
+
+## 📂 Project Structure (Overview)
+
+```
+dragon-news/
+├── app/
+│   ├── (auth)/
+│   │   ├── login/
+│   │   └── register/
+│   ├── (main)/
+│   │   ├── page.jsx          # Homepage
+│   │   ├── news/[id]/        # Dynamic News Details
+│   │   └── category/[id]/    # Category Filter Page
+│   └── layout.jsx
+├── components/
+│   ├── Navbar.jsx
+│   ├── NewsCard.jsx
+│   └── CategoryList.jsx
+├── lib/
+│   ├── auth.js               # Better Auth configuration
+│   └── db.js                 # MongoDB connection
+└── public/
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js v18+
+- MongoDB (Atlas)
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/mahmud-abdullah-262/dragon-news-with-backend.git
+
+# Navigate to the project directory
+cd dragon-news
+
+# Install dependencies
+npm install
+```
+
+### Environment Variables
+
+Create a `.env.local` file and add the following variables:
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+BETTER_AUTH_SECRET=your_auth_secret
+BETTER_AUTH_URL=http://localhost:3000
+```
+
+### Run the Project
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will run at [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📝 Summary
 
-## Learn More
+**Dragon News** is a full-featured news portal built with **Next.js** App Router and **HeroUI**, delivering a modern and responsive user interface. The project integrates **Better Auth** to ensure secure user authentication, with fully functional Sign Up, Log In, Log Out, and Session Management. All user data is stored securely in a **MongoDB** database. Users can filter news by category and read the full details of any article on a dedicated dynamic page. Protected pages are accessible only to authenticated users, making Dragon News a professional and secure news platform.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 👨‍💻 Author
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Abdullah Al Mahmud**
+- GitHub: [@mahmud-abdullah-262](https://github.com/mahmud-abdullah-262)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> ⭐ If you find this project helpful, please give it a star!
